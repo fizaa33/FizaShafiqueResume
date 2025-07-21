@@ -952,11 +952,7 @@ section,
   background-color: var(--accent-color);
 }
 
-@media (min-width: 992px) {
-  .testimonials .testimonial-item p {
-    width: 80%;
-  }
-}
+
 
 /*--------------------------------------------------------------
 # Resume Section
@@ -1154,16 +1150,26 @@ section,
   position: relative;
   overflow: hidden;
   object-fit: cover;
+  width: 50%;
+
+padding: 30px;
 
 }
+
 .portfolio-img>img {
   width: 100%;
-  height: auto;
-  transition: transform 0.3s ease-in-out;
-}
+  height: 100%;
+  transition: all 0.4s ease-in-out;
+  border-radius: 10px;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
 
-.portfolio-item:hover .portfolio-img>img {
-  transform: scale(1.05);
+}
+.portfolio-img:hover>img {
+  transform: scale(1.03);
+}
+.reverse{
+  flex-direction: row-reverse;
 }
 
 .portfolio .portfolio-filters li {
@@ -1207,7 +1213,6 @@ section,
 
 .portfolio .portfolio-item .portfolio-info {
   transition: all ease-in-out 0.5s;
-  padding: 15px;
 }
 
 
@@ -1225,42 +1230,29 @@ section,
 
 /* Responsive Grid */
 .portfolio-container {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
   padding: 20px;
 }
 
-@media (min-width: 768px) {
-  .portfolio-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
- 
-}
-
-@media (min-width: 1200px) {
-  .portfolio-container {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
 
 /* Portfolio Item */
 .portfolio-item {
-  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
   overflow: hidden;
-  transition: transform 0.4s ease, opacity 0.4s ease;
-  background: var(--surface-color);
  display: flex;
-  flex-direction: column;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+ align-items: center;
+ gap: 20px;
 }
 
 .portfolio-info {
-  padding: 20px;
-
+  padding: 30px;
+  width: 50%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
 }
-
-
 
 
 
@@ -1377,7 +1369,7 @@ section,
 .github-live {
   display: flex;
   gap: 10px; /* Space between buttons */
-padding: 20px;
+padding: 20px 0px;
   margin-top: auto;
 
 }
@@ -1424,3 +1416,29 @@ padding: 20px;
   margin-top: 10px;
 }
 
+.portfolio-info h4:hover {
+  color: var(--accent-color);
+ 
+}
+
+@media (min-width: 992px) {
+  .testimonials .testimonial-item p {
+    width: 80%;
+  }
+ 
+}
+
+@media (max-width: 992px) {
+ .portfolio-item{
+    flex-direction: column;
+
+  }
+  .portfolio-img, .portfolio-info {
+    width: 100%;
+
+    padding: 0px;
+  }
+  .reverse{
+    flex-direction: column;
+  }
+}
